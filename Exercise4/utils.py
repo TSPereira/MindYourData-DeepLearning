@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
 
 sys.path.append('..')
 
@@ -26,7 +26,7 @@ def displayData(X, example_width=None, figsize=(10, 10)):
     display_rows = int(np.floor(np.sqrt(m)))
     display_cols = int(np.ceil(m / display_rows))
 
-    fig, ax_array = pyplot.subplots(display_rows, display_cols, figsize=figsize)
+    fig, ax_array = plt.subplots(display_rows, display_cols, figsize=figsize)
     fig.subplots_adjust(wspace=0.025, hspace=0.025)
 
     ax_array = [ax_array] if m == 1 else ax_array.ravel()
@@ -169,6 +169,44 @@ def checkNNGradients(nnCostFunction, lambda_=0):
     print('If your backpropagation implementation is correct, then \n'
           'the relative difference will be small (less than 1e-9). \n'
           'Relative Difference: %g' % diff)
+
+
+def sigmoidGradient(z):
+    """
+    Computes the gradient of the sigmoid function evaluated at z.
+    This should work regardless if z is a matrix or a vector.
+    In particular, if z is a vector or matrix, you should return
+    the gradient for each element.
+
+    Parameters
+    ----------
+    z : array_like
+        A vector or matrix as input to the sigmoid function.
+
+    Returns
+    --------
+    g : array_like
+        Gradient of the sigmoid function. Has the same shape as z.
+
+    Instructions
+    ------------
+    Compute the gradient of the sigmoid function evaluated at
+    each value of z (z can be a matrix, vector or scalar).
+
+    Note
+    ----
+    We have provided an implementation of the sigmoid function
+    in `utils.py` file accompanying this assignment.
+    """
+
+    g = np.zeros(z.shape)
+
+    # ====================== YOUR CODE HERE ======================
+
+    g = sigmoid(z) * (1 - sigmoid(z))
+
+    # =============================================================
+    return g
 
 
 def sigmoid(z):
