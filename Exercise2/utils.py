@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
 
 sys.path.append('..')
 
@@ -79,12 +79,12 @@ def plotDecisionBoundary(plotData, theta, X, y):
         plot_y = (-1. / theta[2]) * (theta[1] * plot_x + theta[0])
 
         # Plot, and adjust axes for better viewing
-        pyplot.plot(plot_x, plot_y)
+        plt.plot(plot_x, plot_y)
 
         # Legend, specific for the exercise
-        pyplot.legend(['Admitted', 'Not admitted', 'Decision Boundary'])
-        pyplot.xlim([30, 100])
-        pyplot.ylim([30, 100])
+        plt.legend(['Admitted', 'Not admitted', 'Decision Boundary'])
+        plt.xlim([30, 100])
+        plt.ylim([30, 100])
     else:
         # Here is the grid range
         u = np.linspace(-1, 1.5, 50)
@@ -100,5 +100,5 @@ def plotDecisionBoundary(plotData, theta, X, y):
         # print(z)
 
         # Plot z = 0
-        pyplot.contour(u, v, z, levels=[0], linewidths=2, colors='g')
-        pyplot.contourf(u, v, z, levels=[np.min(z), 0, np.max(z)], cmap='Greens', alpha=0.4)
+        plt.contour(u, v, z, levels=[0], linewidths=2, colors='g')
+        plt.contourf(u, v, z, levels=[np.min(z), 0, np.max(z)], cmap='Greens', alpha=0.4)

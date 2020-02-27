@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
 
 sys.path.append('..')
 
@@ -26,7 +26,7 @@ def displayData(X, example_width=None, figsize=(10, 10)):
     display_rows = int(np.floor(np.sqrt(m)))
     display_cols = int(np.ceil(m / display_rows))
 
-    fig, ax_array = pyplot.subplots(display_rows, display_cols, figsize=figsize)
+    fig, ax_array = plt.subplots(display_rows, display_cols, figsize=figsize)
     fig.subplots_adjust(wspace=0.025, hspace=0.025)
 
     ax_array = [ax_array] if m == 1 else ax_array.ravel()
